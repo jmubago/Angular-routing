@@ -1,0 +1,11 @@
+<h2>Employee Detail</h2>
+<div *ngIf='currentEmployee'>
+    <p>You have selected the employee {{currentEmployee.name}} who is {{currentEmployee.age}} years old</p>
+</div>
+
+<button (click)='goPrevious()' [disabled]="previousDisable">Previous</button>
+<button (click)='goNext()' [disabled]="nextDisable">Next</button>
+
+<div>
+    <button (click)='goToEmployList()'>Back</button>
+</div>
