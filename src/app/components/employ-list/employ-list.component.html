@@ -4,7 +4,10 @@
 </div>
 
 <ul class="items">
-    <li *ngFor="let employee of employees" [class.selected]='isSelected(employee)' (click)='selectEmployee(employee)'>
-        <span class="badge">{{employee.id}}</span> {{employee.name}}
-    </li>
+    <div *ngFor="let employee of employees">
+        <li [class.selected]='isSelected(employee)' (click)='selectEmployee(employee)'>
+            <span class="badge">{{employee.id}}</span> {{employee.name}}
+        </li>
+    </div>
+
 </ul>

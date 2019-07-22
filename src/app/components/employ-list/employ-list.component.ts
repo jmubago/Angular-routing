@@ -23,7 +23,7 @@ export class EmployListComponent implements OnInit {
     // Read the optional parameter (id) from URL if exists
     this.route.params.subscribe(data => {
       if(data.id){
-        this.selectedId = data.id
+        this.selectedId = parseInt(data.id);
       }
     });
   }
@@ -31,11 +31,14 @@ export class EmployListComponent implements OnInit {
 
   public selectEmployee (employee){
     // Add parameters to 'employlist' URL as defined in routing module-> localhost/4200/employlist/<employee.id>
-    this.router.navigate(['employlist', employee.id])
+    // this.router.navigate(['employlist', employee.id])
+
+    // Relative navigation, adds flexibility to routing
+    // this.route refers to current URL route, and we append the first parameter (employee.id) to it.
+    this.router.navigate([employee.id], {relativeTo: this.route});
   }
 
   public isSelected(employee){
-    console.log(employee);
-    // return this.selectedId === employee.id;
+    return employee.id === this.selectedId;
   }
 }
